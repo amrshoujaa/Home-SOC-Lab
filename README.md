@@ -90,3 +90,12 @@ Practice incident response
 
 Build practical blue-team and SOC analyst skills through
 hands-on experimentation in a controlled lab environment.
+
+
+## 📸 Lab Evidence & Screenshots
+
+### Agent Connection Status
+![Wazuh Agent Status](screenshots/wazuh-agent-status.png)
+
+### Active Event Ingestion
+![Wazuh Events Log](screenshots/wazuh-events.png)

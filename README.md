@@ -95,7 +95,8 @@ hands-on experimentation in a controlled lab environment.
 ## 📸 Lab Evidence & Screenshots
 
 ### Agent Connection Status
-![Wazuh Agent Status](screenshots/wazuh-agent-status.png)
+<img width="1800" height="699" alt="wazuh-agent-status" src="https://github.com/user-attachments/assets/a198740b-deae-4880-890e-04064ec1d9e8" />
+
 
 ### Active Event Ingestion
-![Wazuh Events Log](screenshots/wazuh-events.png)
+<img width="1898" height="920" alt="wazuh-events" src="https://github.com/user-attachments/assets/8d2972b7-8321-43e1-b523-e7775bc5e6aa" />

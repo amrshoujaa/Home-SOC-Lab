@@ -98,3 +98,8 @@ hands-on experimentation in a controlled lab environment.
 
 ### Active Event Ingestion
 ![Wazuh Events Log](screenshots/wazuh-events.png)
+
+### Sysmon
+![Wazuh Events Log](screenshots/sysmon.png)
+
+### AD

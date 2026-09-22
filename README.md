@@ -92,11 +92,4 @@ Build practical blue-team and SOC analyst skills through
 hands-on experimentation in a controlled lab environment.
 
 
-## 📸 Lab Evidence & Screenshots
 
-### Agent Connection Status
-<img width="1800" height="699" alt="wazuh-agent-status" src="https://github.com/user-attachments/assets/a198740b-deae-4880-890e-04064ec1d9e8" />
-
-
-### Active Event Ingestion
-<img width="1898" height="920" alt="wazuh-events" src="https://github.com/user-attachments/assets/8d2972b7-8321-43e1-b523-e7775bc5e6aa" />

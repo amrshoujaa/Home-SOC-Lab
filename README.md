@@ -44,6 +44,7 @@ log collection, detection, and incident investigation.
                  └─────────────────────┘
 
 🔍 What I Practiced:
+
 VMware virtual lab deployment
 Network configuration and static IPs
 Active Directory deployment
@@ -70,12 +71,14 @@ Wazuh Indexer
 Wazuh Dashboard
 
 ✅ Current Status:
+
 The initial SOC lab environment is operational.
 Windows endpoint events are successfully collected through
 Sysmon and Wazuh and are available for investigation through
 the Wazuh Dashboard.
 
 🚀 Next Steps:
+
 Simulate attacks from Kali Linux
 Generate security events
 Investigate Wazuh alerts
@@ -84,5 +87,6 @@ Build detection scenarios
 Practice incident response
 
 🎯 Goal:
+
 Build practical blue-team and SOC analyst skills through
 hands-on experimentation in a controlled lab environment.

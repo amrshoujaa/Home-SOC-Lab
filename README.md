@@ -100,6 +100,7 @@ hands-on experimentation in a controlled lab environment.
 ![Wazuh Events Log](screenshots/wazuh-events.png)
 
 ### Sysmon
-![Wazuh Events Log](screenshots/sysmon.png)
+![Sysmon Event log](screenshots/sysmon.png)
 
-### AD
+### Active Directory
+![Active Directory](screenshots/ActiveDirectory.png)

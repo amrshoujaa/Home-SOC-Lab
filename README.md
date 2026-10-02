@@ -77,7 +77,12 @@ Windows endpoint events are successfully collected through
 Sysmon and Wazuh and are available for investigation through
 the Wazuh Dashboard.
 
-🚀 Next Steps:
+I have started actively generating logs (by running simulated activities
+and tests) and confirmed that those events are being ingested and
+displayed in the Wazuh Dashboard's event view and discovery panels.
+Below is evidence showing generated logs visible in the Dashboard.
+
+## 🚀 Next Steps:
 
 Simulate attacks from Kali Linux
 Generate security events
@@ -92,6 +97,18 @@ Build practical blue-team and SOC analyst skills through
 hands-on experimentation in a controlled lab environment.
 
 ## 📸 Lab Evidence & Screenshots
+
+### 1) Failed logon — 3 incorrect password attempts
+The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events (Logon/Logoff) and related Sysmon data that the Wazuh Agent forwards to the manager.
+
+![Failed logon — 3 attempts](screenshots/failed-logon.png)
+
+Caption: Windows 11 VM ("Windows 11 soc") showing a failed login for SOC-User. The client recorded multiple incorrect passwords during this session; those authentication failures produced events visible in Wazuh.
+
+### 2) Wazuh Dashboard — Collected events from the failed logons
+The Wazuh Discover view below demonstrates that Windows events from the endpoint were ingested. You can see raw event records (agent.ip, agent.name, data.win.eventdata.* fields) and a small chart showing the recent hits over time — this confirms that the failed logon activity above was captured and indexed by Wazuh.
+
+![Wazuh Dashboard — Generated Logs](screenshots/wazuh-dashboard-logs.png)
 
 ### Agent Connection Status
 ![Wazuh Agent Status](screenshots/wazuh-agent-status.png)

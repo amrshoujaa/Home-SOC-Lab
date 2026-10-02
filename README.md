@@ -101,7 +101,7 @@ hands-on experimentation in a controlled lab environment.
 ### 1) Failed logon — 3 incorrect password attempts
 The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events (Logon/Logoff) and related Sysmon data that the Wazuh Agent forwards to the manager.
 
-![Failed logon — 3 attempts](screenshots/windows-vm-failed-logon(3times).png)
+![Failed logon — 3 attempts](screenshots/windows-vm-failed-logon-(3times).png)
 
 Caption: Windows 11 VM ("Windows 11 soc") showing a failed login for SOC-User. The client recorded multiple incorrect passwords during this session; those authentication failures produced events visible in Wazuh.
 

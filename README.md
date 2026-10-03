@@ -128,8 +128,6 @@ This example shows how I created a Wazuh detection rule to alert when the built-
 
 In the first screenshot, I opened the local rule file and identified the event type I wanted to monitor. I decided to create a rule for the Windows account change event that indicates a user account was enabled.
 
-![deciding which rule to create](screenshots/rule-creation/guest-acc-enabled.png)
-
 The key conditions were:
 
 - Windows event ID: `4722`
@@ -176,7 +174,7 @@ This rule does the following:
 
 The second screenshot shows the Wazuh Discover view. Here I verified that the raw event was actually present in the collected Windows telemetry.
 
-![Creating the rule](screenshots/rule-creation/creating-the-rule.png)
+![deciding which rule to create](screenshots/rule-creation/guest-acc-enabled.png)
 
 The important part is the event data:
 

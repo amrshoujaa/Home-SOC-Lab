@@ -128,6 +128,8 @@ This example shows how I created a Wazuh detection rule to alert when the built-
 
 In the first screenshot, I opened the local rule file and identified the event type I wanted to monitor. I decided to create a rule for the Windows account change event that indicates a user account was enabled.
 
+![deciding which rule to create](screenshots/rule-creation/guest-acc-enabled.png)
+
 The key conditions were:
 
 - Windows event ID: `4722`
@@ -174,6 +176,8 @@ This rule does the following:
 
 The second screenshot shows the Wazuh Discover view. Here I verified that the raw event was actually present in the collected Windows telemetry.
 
+![Creating the rule](screenshots/rule-creation/creating-the-rule.png)
+
 The important part is the event data:
 
 - `data.win.system.eventID: 4722`
@@ -184,6 +188,8 @@ This confirmed that the event was being ingested correctly before I relied on th
 ### Step 4: Verifying the rule fired
 
 The third screenshot shows the alert view in Wazuh. The first red arrow points to the alerts index (`wazuh-alerts-*`), which is where Wazuh stores generated alerts. The second red arrow points directly to the alert entry for the rule we created.
+
+![Failed logon — 3 attempts](screenshots/rule-creation/rule-fires.png)
 
 The generated alert message is:
 

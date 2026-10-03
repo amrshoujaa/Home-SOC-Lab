@@ -111,7 +111,7 @@ hands-on experimentation in a controlled lab environment.
 ![Active Directory](screenshots/ActiveDirectory.png)
 
 ### 1) Failed logon — 3 incorrect password attempts
-The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events and are visible in the Wazuh dashboard for investigation.
+The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events and are visible in Wazuh after ingestion.
 
 ![Failed logon — 3 attempts](screenshots/windows-vm-failed-logon-(3times).png)
 
@@ -120,9 +120,84 @@ The Wazuh Discover view below demonstrates that Windows events from the endpoint
 
 ![Wazuh Dashboard — Generated Logs](screenshots/wazuh-dashborad-collecting-logs.png)
 
+## 🛡️ Creating an alert rule for enabling the Windows Guest account
+
+This example shows how I created a Wazuh detection rule to alert when the built-in Windows Guest account is enabled. The goal was to detect a specific account-change event and confirm that the alert was generated in the Wazuh dashboard.
+
+### Step 1: Deciding which rule to create
+
+In the first screenshot, I opened the local rule file and identified the event type I wanted to monitor. I decided to create a rule for the Windows account change event that indicates a user account was enabled.
+
+The key conditions were:
+
+- Windows event ID: `4722`
+- Event type: a user account was enabled
+- Target username: `Guest`
+
+This is the exact scenario I wanted to detect: when the Guest account is enabled on a Windows machine.
+
+### Step 2: The custom rule created in `local_rules.xml`
+
+I added the following rule to the Wazuh local rules configuration:
+
+```xml
+<group name="windows,windows_security,account_changed,adduser">
+  <rule id="100200" level="12">
+    <if_sid>60103</if_sid>
+    <field name="win.system.eventID">^4722$</field>
+    <field name="win.eventdata.targetUserName">^Guest$</field>
+
+    <description>(agent-name) Windows Guest was enabled.</description>
+
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+
+    <group>
+      windows,
+      windows_account_management,
+      account_enabled,
+      guest_account,
+    </group>
+  </rule>
+</group>
+```
+
+This rule does the following:
+
+- `if_sid 60103` keeps the rule inside the Windows account-change event family.
+- `win.system.eventID` matches event `4722`, which is the Windows event for enabling an account.
+- `win.eventdata.targetUserName` matches the username `Guest`.
+- The `description` field makes the alert readable in the Wazuh dashboard.
+
+### Step 3: Confirming the event existed in the log data
+
+The second screenshot shows the Wazuh Discover view. Here I verified that the raw event was actually present in the collected Windows telemetry.
+
+The important part is the event data:
+
+- `data.win.system.eventID: 4722`
+- `data.win.eventdata.targetUserName: Guest`
+
+This confirmed that the event was being ingested correctly before I relied on the alert rule to generate a detection.
+
+### Step 4: Verifying the rule fired
+
+The third screenshot shows the alert view in Wazuh. The first red arrow points to the alerts index (`wazuh-alerts-*`), which is where Wazuh stores generated alerts. The second red arrow points directly to the alert entry for the rule we created.
+
+The generated alert message is:
+
+> Windows Guest account was enabled.
+
+This confirms that the detection worked. The rule matched the event, the alert was generated, and the suspicious activity was visible in the Wazuh alerts section.
+
+### Why this is useful
+
+This is a good example of a detection rule that connects an event to an attacker-relevant action. In this case, enabling the Guest account is a high-value security event because it can create an unauthorized access path or indicate an account manipulation attempt.
+
 ## 🔒 File Integrity Monitoring (FIM)
 
-This section shows how I configured file integrity monitoring in Wazuh for both Windows and Linux hosts. The goal was to monitor a test file for changes, trigger alerts when the file was edited, and confirm the detection in the Wazuh dashboard.
+This section shows how I configured file integrity monitoring in Wazuh for both Windows and Linux hosts. The goal was to monitor a test file for changes, trigger alerts when the file was edited, and verify the detection process inside the Wazuh dashboard.
 
 ### Windows File Integrity Process
 

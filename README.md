@@ -98,16 +98,6 @@ hands-on experimentation in a controlled lab environment.
 
 ## 📸 Lab Evidence & Screenshots
 
-### 1) Failed logon — 3 incorrect password attempts
-The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events and are visible in the Wazuh dashboard for investigation.
-
-![Failed logon — 3 attempts](screenshots/windows-vm-failed-logon-(3times).png)
-
-### 2) Wazuh Dashboard — Collected events from the failed logons
-The Wazuh Discover view below demonstrates that Windows events from the endpoint were ingested. You can see raw event records and a chart representing the generated activity.
-
-![Wazuh Dashboard — Generated Logs](screenshots/wazuh-dashborad-collecting-logs.png)
-
 ### Agent Connection Status
 ![Wazuh Agent Status](screenshots/wazuh-agent-status.png)
 
@@ -119,6 +109,16 @@ The Wazuh Discover view below demonstrates that Windows events from the endpoint
 
 ### Active Directory
 ![Active Directory](screenshots/ActiveDirectory.png)
+
+### 1) Failed logon — 3 incorrect password attempts
+The screenshot below shows the Windows 11 VM login screen for user "SOC-User" after three consecutive incorrect password attempts. These failed logons generate Windows Security events and are visible in the Wazuh dashboard for investigation.
+
+![Failed logon — 3 attempts](screenshots/windows-vm-failed-logon-(3times).png)
+
+### 2) Wazuh Dashboard — Collected events from the failed logons
+The Wazuh Discover view below demonstrates that Windows events from the endpoint were ingested. You can see raw event records and a chart representing the generated activity.
+
+![Wazuh Dashboard — Generated Logs](screenshots/wazuh-dashborad-collecting-logs.png)
 
 ## 🔒 File Integrity Monitoring (FIM)
 

@@ -100,29 +100,10 @@ This is the configuration concept used:
 
 The command shown in the screenshot is:
 
-/var/ossec/bin/agent_control -L
+`/var/ossec/bin/agent_control -L`
 
-This command is used to list all agents connected to the Wazuh manager and shows their current status. In this lab, it is useful to confirm that the monitored endpoint is still active and connected to the manager while the active response is being tested.
-
-What the command does:
-
-- agent_control is the Wazuh agent management utility.
-- -L tells the utility to list the registered agents.
-- The output typically includes:
-  - agent ID
-  - agent name
-  - IP address
-  - status (for example, active/connected)
-  - sometimes whether the agent is online or disconnected
-
-Why this matters in the active response demo:
-
-- It confirms the monitored machine is online and reporting to the Wazuh manager.
-- It helps verify that the SSH attack traffic is being collected from the agent.
-- It is a quick way to confirm the environment is healthy before and after triggering the active response.
-
-So in this example, the command is not directly showing the firewall block itself; instead, it verifies the agent is connected and reporting correctly, which is necessary for the active response flow to work.
-
+This command lists all currently activated active-response entries on the Wazuh manager.
+Each line in the output shows the response name and the command name.
 
 ## 8) Active response working after the SSH attack is repeated
 After the SSH attack is repeated, the active response successfully blocks the attacker IP at the firewall. The arrow in the screenshot points to the blocked source IP or firewall restriction, confirming that the full flow works:

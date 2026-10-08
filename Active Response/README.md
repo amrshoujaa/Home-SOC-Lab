@@ -72,6 +72,8 @@ This is the file where active response rules and commands are configured.
 ![Active response location](AR-screen-shots/image-5-ossec-conf-location.png)
 
 ## 6) Changes made for active response to work
+![Active response config](AR-screen-shots/image-6-active-response-config.png)
+
 These are the changes made in the configuration to get the active response working:
 
 - First, the arrows and the `!` mark were removed because Wazuh interpreted them as comments.
@@ -92,7 +94,6 @@ This is the configuration concept used:
 </active-response>
 ```
 
-![Active response config](AR-screen-shots/image-6-active-response-config.png)
 
 ## 7) CLI command used to show the active response is working
 

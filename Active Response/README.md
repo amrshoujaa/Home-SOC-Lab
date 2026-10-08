@@ -95,6 +95,9 @@ This is the configuration concept used:
 ![Active response config](AR-screen-shots/image-6-active-response-config.png)
 
 ## 7) CLI command used to show the active response is working
+
+![CLI check](AR-screen-shots/image-7-cli-check.png)
+
 The command shown in the screenshot is:
 
 /var/ossec/bin/agent_control -L
@@ -120,14 +123,14 @@ Why this matters in the active response demo:
 
 So in this example, the command is not directly showing the firewall block itself; instead, it verifies the agent is connected and reporting correctly, which is necessary for the active response flow to work.
 
-![CLI check](AR-screen-shots/image-7-cli-check.png)
 
 ## 8) Active response working after the SSH attack is repeated
 After the SSH attack is repeated, the active response successfully blocks the attacker IP at the firewall. The arrow in the screenshot points to the blocked source IP or firewall restriction, confirming that the full flow works:
+
+![Active response working](AR-screen-shots/image-8-active-response-working.png)
 
 - SSH attack attempts trigger the custom rule
 - The rule fires in Wazuh
 - The active response is invoked
 - The firewall blocks the attacking source IP
 
-![Active response working](AR-screen-shots/image-8-active-response-working.png)
